@@ -1,9 +1,11 @@
 package Tapper::SimNow;
+# git description: v4.0.1-3-g06f7e02
+
 BEGIN {
   $Tapper::SimNow::AUTHORITY = 'cpan:AMD';
 }
 {
-  $Tapper::SimNow::VERSION = '4.0.1';
+  $Tapper::SimNow::VERSION = '4.1.0';
 }
 # ABSTRACT: Tapper - Support for running SimNow sessions
 
@@ -197,17 +199,18 @@ sub run
                 $retval = $self->create_console();
                 last if $retval;
 
-                my $report = $self->generate_meta_report();
-                my $tap = $net->tap_report_create($report);
-                my $error;
-                ($error, $retval) = $net->tap_report_away($tap);
-                last if $error;
 
                 $retval = $self->start_mediator();
                 last if $retval;
 
                 $retval = $self->start_simnow();
                 last if $retval;
+
+                my $report = $self->generate_meta_report();
+                my $tap = $net->tap_report_create($report);
+                my $error;
+                ($error, $retval) = $net->tap_report_away($tap);
+                last if $error;
 
         }
         if ($retval) {
