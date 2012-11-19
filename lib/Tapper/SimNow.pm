@@ -1,11 +1,11 @@
 package Tapper::SimNow;
-# git description: v4.0.1-3-g06f7e02
+# git description: v4.1.0-1-gefbd11b
 
 BEGIN {
-  $Tapper::SimNow::AUTHORITY = 'cpan:AMD';
+  $Tapper::SimNow::AUTHORITY = 'cpan:TAPPER';
 }
 {
-  $Tapper::SimNow::VERSION = '4.1.0';
+  $Tapper::SimNow::VERSION = '4.1.1';
 }
 # ABSTRACT: Tapper - Support for running SimNow sessions
 
